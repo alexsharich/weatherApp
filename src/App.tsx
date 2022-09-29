@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Form } from './ui/form/Form';
+import { WeatherInformation } from './ui/form/weatherInformation/WeatherInformation';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <Form getCurrentWeather={getCurrentWeather} setCityName={setCityName} />
+      <WeatherInformation />
     </div>
   );
 }
