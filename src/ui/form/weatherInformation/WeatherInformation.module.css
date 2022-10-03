@@ -1,0 +1,12 @@
+.container {
+  padding: 50px;
+  margin: 0 auto;
+}
+.weatherInformationBlock {
+  width: 500px;
+  height: 500px;
+  background-color: rgb(188, 182, 182);
+  border: 2px solid grey;
+  border-radius: 5px;
+  color: black;
+}

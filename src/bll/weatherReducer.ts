@@ -44,7 +44,7 @@ const initialState = {
   },
   timezone: 0,
   id: 0,
-  name: "",
+  name: "s",
   cod: 0
 }
 type InitialStateType = {
@@ -102,7 +102,9 @@ export const weatherReducer = (state:any=initialState,action:any):InitialStateTy
   switch (action.type) {
     case 'GET-CURRENT-WEATHER':
       return {
-        ...state
+        ...state,
+        ...action.payload
+        
       }
     default :
      return state  
@@ -118,7 +120,7 @@ const getCurrenWeatherAC = (payload:any):GetCurrentWeatherActionType=>{
     payload
   }
 }
-const getCurrentWeatherTC = (payload:any)=>{
+export const getCurrentWeatherTC = (payload:any):any=>{
   return (dispatch:any)=>{
     dispatch(getCurrenWeatherAC(payload))
   }
