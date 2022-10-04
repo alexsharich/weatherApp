@@ -1,3 +1,6 @@
+import { Dispatch } from "redux"
+import { AppThunk } from "./store"
+
 const initialState = {
   coord: {
     lon: 0,
@@ -44,7 +47,7 @@ const initialState = {
   },
   timezone: 0,
   id: 0,
-  name: "s",
+  name: "",
   cod: 0
 }
 type InitialStateType = {
@@ -96,9 +99,9 @@ type InitialStateType = {
   name: string
   cod: number
 }
-type ActionType = GetCurrentWeatherActionType
+export type WeatherReducerActionType = GetCurrentWeatherActionType
 
-export const weatherReducer = (state:any=initialState,action:any):InitialStateType=>{
+export const weatherReducer = (state:any=initialState,action:WeatherReducerActionType):InitialStateType=>{
   switch (action.type) {
     case 'GET-CURRENT-WEATHER':
       return {
@@ -120,8 +123,8 @@ const getCurrenWeatherAC = (payload:any):GetCurrentWeatherActionType=>{
     payload
   }
 }
-export const getCurrentWeatherTC = (payload:any):any=>{
-  return (dispatch:any)=>{
+export const getCurrentWeatherTC = (payload:any):AppThunk=>{
+  return (dispatch)=>{
     dispatch(getCurrenWeatherAC(payload))
   }
 }

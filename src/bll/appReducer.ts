@@ -1,11 +1,15 @@
+import { Dispatch } from "redux"
+import { AppThunk } from "./store"
+
 const initialState:InitialStateType = {
   isLoading:false
 }
 type InitialStateType = {
   isLoading:boolean
 }
-type ActionType = SetIsLoadingActionType
-export const appReducer = (state:InitialStateType=initialState,action:ActionType):InitialStateType=>{
+export type AppReducerActionType = SetIsLoadingActionType
+
+export const appReducer = (state:InitialStateType=initialState,action:AppReducerActionType):InitialStateType=>{
 switch(action.type){
   case 'SET-ISLOADING':
     return {
@@ -26,8 +30,8 @@ const setIsLoadingAC = (value:boolean):SetIsLoadingActionType=>{
     value
   }
 }
-export const setIsLoadingTC = (value:boolean):any=>{
-  return (dispatch:any)=>{
+export const setIsLoadingTC = (value:boolean):AppThunk=>{
+  return (dispatch)=>{
     dispatch(setIsLoadingAC(value))
   }
 }

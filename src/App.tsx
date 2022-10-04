@@ -3,16 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 import { Form } from './ui/form/Form';
 import { WeatherInformation } from './ui/form/weatherInformation/WeatherInformation';
-import { weatherApi } from './dal/api';
-import { useDispatch } from 'react-redux';
 import { getCurrentWeatherTC } from './bll/weatherReducer';
 import { setIsLoadingTC } from './bll/appReducer';
+import { useAppDispatch } from './app/hooks';
 
 
 function App() {
 
 let [cityName,setCityName]=useState('')
-const dispatch = useDispatch()
+const dispatch = useAppDispatch()
 
  const getCurrentWeather = async (e:any)=>{
   e.preventDefault()

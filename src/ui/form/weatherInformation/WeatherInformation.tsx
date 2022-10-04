@@ -1,13 +1,13 @@
 import { timeEnd } from 'console'
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { AppRootStateType } from '../../../bll/store'
+import { useAppSelector } from '../../../app/hooks'
 import s from './WeatherInformation.module.css'
 
 export const WeatherInformation =()=> {
 
-  let weather = useSelector<AppRootStateType,any>(state=>state.weatherReducer)
-  let isLoading = useSelector<AppRootStateType,boolean>(state=>state.appReducer.isLoading)
+  let weather = useAppSelector(state=>state.weatherReducer)
+  let isLoading = useAppSelector(state=>state.appReducer.isLoading)
+  
   const correctTime = (value:number)=>{
     if(value != 0){
       const time = new Date(value * 1000)
