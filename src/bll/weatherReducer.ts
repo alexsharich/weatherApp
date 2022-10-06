@@ -72,16 +72,16 @@ type InitialStateType = {
     pressure: number
     humidity: number
     sea_level: number
-    grnd_level:number
+    grnd_level: number
   },
   visibility: number
   wind: {
     speed: number
     deg: number
-    gust:number
+    gust: number
   },
   rain: {
-    ['1h']:number
+    ['1h']: number
   },
   clouds: {
     all: number
@@ -101,30 +101,30 @@ type InitialStateType = {
 }
 export type WeatherReducerActionType = GetCurrentWeatherActionType
 
-export const weatherReducer = (state:any=initialState,action:WeatherReducerActionType):InitialStateType=>{
+export const weatherReducer = (state: any = initialState, action: WeatherReducerActionType): InitialStateType => {
   switch (action.type) {
     case 'GET-CURRENT-WEATHER':
       return {
         ...state,
         ...action.payload
-        
+
       }
-    default :
-     return state  
+    default:
+      return state
   }
 }
 type GetCurrentWeatherActionType = {
-  type:'GET-CURRENT-WEATHER'
-  payload:any
+  type: 'GET-CURRENT-WEATHER'
+  payload: any
 }
-const getCurrenWeatherAC = (payload:any):GetCurrentWeatherActionType=>{
+const getCurrenWeatherAC = (payload: any): GetCurrentWeatherActionType => {
   return {
     type: 'GET-CURRENT-WEATHER',
     payload
   }
 }
-export const getCurrentWeatherTC = (payload:any):AppThunk=>{
-  return (dispatch)=>{
+export const getCurrentWeatherTC = (payload: any): AppThunk => {
+  return (dispatch) => {
     dispatch(getCurrenWeatherAC(payload))
   }
 }
