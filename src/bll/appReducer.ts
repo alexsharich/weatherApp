@@ -1,4 +1,3 @@
-import { Dispatch } from "redux"
 import { AppThunk } from "./store"
 
 const initialState: InitialStateType = {

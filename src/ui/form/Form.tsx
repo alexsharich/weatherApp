@@ -1,20 +1,23 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent } from 'react'
 
 type FormPropsType = {
   getCurrentWeather: (e: any) => void
   setCityName: (cityName: string) => void
 }
 
-export const Form: React.FC<FormPropsType> = ({ getCurrentWeather, setCityName }) => {
-
+export const Form: React.FC<FormPropsType> = ({
+  getCurrentWeather,
+  setCityName,
+}) => {
   const onChangeCity = (e: ChangeEvent<HTMLInputElement>) => {
     setCityName(e.currentTarget.value)
   }
 
   return (
-    <form onSubmit={getCurrentWeather} >
-      <input type="text" onChange={onChangeCity} placeholder='City' />
-      <button>Get Current Weather</button>
-    </form>
+    <div className="search">
+      <form onSubmit={getCurrentWeather}>
+        <input type="text" onChange={onChangeCity} placeholder="search city" />
+      </form>
+    </div>
   )
 }
